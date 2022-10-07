@@ -8,7 +8,10 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - run: curl -X POST  "https://us-central1-fhir-org-starter-project.cloudfunctions.net/ig-commit-trigger" -H "Content-type: application/json" --data '{"ref": "refs/heads/master", "repository": {"full_name": "costateixeira/testworkflows"}}'
+      - run: | 
+          curl -X POST  "https://us-central1-fhir-org-starter-project.cloudfunctions.net/ig-commit-trigger" 
+          -H "Content-type: application/json" 
+          --data '{"ref": "refs/heads/master", "repository": {"full_name": "costateixeira/testworkflows"}}'
   
   
       - name: Start HL7 Webhook
