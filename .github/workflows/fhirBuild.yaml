@@ -1,13 +1,10 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Trigger HL7 FHIR Autobuild
+run-name: ${{ github.actor }} triggered a GitHub Action
 on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - run: | 
           curl --request POST \
           --header 'content-type: application/json' \
@@ -15,10 +12,10 @@ jobs:
           --data '{"ref": "refs/heads/master", "repository": {"full_name": "costateixeira/testworkflows"}}'
    
   
-      - name: Start HL7 Webhook
-        uses: joelwmale/webhook-action@master
-        with:
-          url: https://us-central1-fhir-org-starter-project.cloudfunctions.net/ig-commit-trigger
+#      - name: Start HL7 Webhook
+#        uses: joelwmale/webhook-action@master
+#        with:
+#          url: https://us-central1-fhir-org-starter-project.cloudfunctions.net/ig-commit-trigger
 #      - name: Start HL7 Webhook
 #        uses: distributhor/workflow-webhook@v2.0.4
 #        env:
