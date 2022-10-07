@@ -5,13 +5,13 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "${{ github.ref }} - ${{ github.repository }}"
       - run: | 
           curl --request POST \
           --header 'content-type: application/json' \
           --url https://us-central1-fhir-org-starter-project.cloudfunctions.net/ig-commit-trigger \
           --data '{"ref": "${{ github.ref }}", "repository": {"full_name": "${{ github.repository }}"}}'
-   
-  
+
 #      - name: Start HL7 Webhook
 #        uses: joelwmale/webhook-action@master
 #        with:
