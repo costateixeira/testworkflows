@@ -13,7 +13,7 @@ jobs:
           --header 'content-type: application/json' \
           --url https://us-central1-fhir-org-starter-project.cloudfunctions.net/ig-commit-trigger \
           --data '{"ref": "refs/heads/master", "repository": {"full_name": "costateixeira/testworkflows"}}'
-  
+   
   
       - name: Start HL7 Webhook
         uses: joelwmale/webhook-action@master
