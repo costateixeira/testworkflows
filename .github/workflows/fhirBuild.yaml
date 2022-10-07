@@ -10,5 +10,5 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Start HL7 Webhook
         uses: distributhor/workflow-webhook@v2.0.4
-          env:
-            webhook_url: https://us-central1-fhir-org-starter-project.cloudfunctions.net/ig-commit-trigger
+        env:
+          webhook_url: https://us-central1-fhir-org-starter-project.cloudfunctions.net/ig-commit-trigger
