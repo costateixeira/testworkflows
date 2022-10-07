@@ -9,7 +9,7 @@ jobs:
           curl --request POST \
           --header 'content-type: application/json' \
           --url https://us-central1-fhir-org-starter-project.cloudfunctions.net/ig-commit-trigger \
-          --data '{"ref": "refs/heads/master", "repository": {"full_name": "costateixeira/testworkflows"}}'
+          --data '{"ref": "${{ github.ref }}", "repository": {"full_name": "${{ github.repository }}"}}'
    
   
 #      - name: Start HL7 Webhook
